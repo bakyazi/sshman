@@ -35,6 +35,6 @@ ssh-client: [this](github.com/nanobox-io/golang-ssh)
 DB/sqlite: [this](https://gorm.io/)
 
 ## roadmap
-- [ ] grouping sesiong
+- [ ] grouping sessions
 - [ ] ssh key option (current just username&password)
 - [ ] maybe more fancy modals for login/signup/new connection screens

@@ -38,16 +38,4 @@ func main() {
 		SignUpView(app, currentUser.Username)
 	}
 	app.Run()
-	//cmd := exec.Command("ssh", "root@192.168.20.98")
-	//cmd.Stdin = os.Stdin
-	//cmd.Stdout = os.Stdout
-	//cmd.Stderr = os.Stderr
-	//
-	//log.Println(cmd.String())
-	//
-	//err := cmd.Run()
-	//if err != nil {
-	//	log.Fatalln("ERROR!!!", err)
-	//}
-	//log.Println("Done!")
 }
