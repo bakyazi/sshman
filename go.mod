@@ -1,4 +1,4 @@
-module sshman
+module github.com/bakyazi/sshman
 
 go 1.17
 

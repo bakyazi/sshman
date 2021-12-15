@@ -10,6 +10,14 @@ grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: devmode # use 'strict' once you have the right plugs and slots
 
 parts:
-  my-part:
+  sshman:
     # See 'snapcraft plugins'
-    plugin: nil
+    plugin: go
+    source: https://github.com/bakyazi/sshman.git
+    override-pull: snapcraftctl pull
+
+apps:
+  sshman:
+    command: bin/sshman
+    plugs:
+      - network
