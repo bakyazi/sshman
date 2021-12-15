@@ -95,7 +95,7 @@ func editSession(session *Session, method int, name string, host string, usernam
 	session.KeyFile = file
 	session.Password = encryptDES([]byte(*userPassword), password)
 	session.Port = port
-	db.Updates(&session)
+	db.Save(&session)
 }
 
 func deleteFunction(session *Session, app *tview.Application, user string) {

@@ -19,9 +19,19 @@ func connectFunction(session *Session, app *tview.Application, user string) {
 
 	port, _ := strconv.Atoi(session.Port)
 	client, _ := ssh.NewNativeClient(session.User, session.IPAddr, "", port, nanPass, nil)
-	_ = client.Shell()
-
+	err := client.Shell()
 	app = tview.NewApplication()
-	homeView(app, user)
+	if err != nil {
+		popmodal := tview.NewModal().
+			SetText(err.Error()).
+			AddButtons([]string{"OK"}).
+			SetDoneFunc(func(buttonIndex int, buttonLabel string) {
+				if buttonLabel == "OK" {
+					homeView(app, user)
+				}
+			})
+		app.SetRoot(popmodal, false)
+	}
+
 	app.Run()
 }
