@@ -60,9 +60,10 @@ func SignUpView(app *tview.Application, user string) {
 						}
 					})
 				app.SetRoot(popmodal, false)
+			} else {
+				createUser(user, password)
+				LoginView(app, user)
 			}
-			createUser(user, password)
-			LoginView(app, user)
 		}).
 		AddButton("Cancel", func() {
 			app.Stop()
