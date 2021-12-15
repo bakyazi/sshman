@@ -51,11 +51,12 @@ sshman uses your unix current user and it creates an account for you. All accoun
 ### with source code
 > $ git clone https://github.com/bakyazi/sshman \
 > $ cd sshman \
-> $ go mod download
+> $ go mod download \
 > $ go run *.go
 
-or with docker
-
+### with docker
+> $ git clone https://github.com/bakyazi/sshman \
+> $ cd sshman \
 > $ docker build -t sshman . \
 > $ ./rundocker.sh
 
