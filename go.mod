@@ -3,6 +3,7 @@ module github.com/bakyazi/sshman
 go 1.17
 
 require (
+	github.com/gdamore/tcell/v2 v2.4.1-0.20210905002822-f057f0a857a1
 	github.com/nanobox-io/golang-ssh v0.0.0-20190309194042-12ea65d3a59d
 	github.com/rivo/tview v0.0.0-20211202162923-2a6de950f73b
 	gorm.io/driver/sqlite v1.2.6
@@ -14,7 +15,6 @@ require (
 	github.com/docker/docker v20.10.12+incompatible // indirect
 	github.com/docker/machine v0.16.2 // indirect
 	github.com/gdamore/encoding v1.0.0 // indirect
-	github.com/gdamore/tcell/v2 v2.4.1-0.20210905002822-f057f0a857a1 // indirect
 	github.com/jcelliott/lumber v0.0.0-20160324203708-dd349441af25 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.4 // indirect
