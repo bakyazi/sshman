@@ -33,9 +33,9 @@ func main() {
 	app := tview.NewApplication()
 	app.EnableMouse(true)
 	if acct != nil {
-		LoginView(app, currentUser.Username)
+		loginView(app, currentUser.Username)
 	} else {
-		SignUpView(app, currentUser.Username)
+		signUpView(app, currentUser.Username)
 	}
 	app.Run()
 }

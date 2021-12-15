@@ -34,7 +34,7 @@ func preparePlaintext(plaintext string) []byte {
 	return plain
 }
 
-func EncryptDES(key []byte, plaintext string) string {
+func encryptDES(key []byte, plaintext string) string {
 	// create cipher
 	key = createDesKey(key)
 	c, _ := des.NewCipher(key)
@@ -49,7 +49,7 @@ func EncryptDES(key []byte, plaintext string) string {
 	return hex.EncodeToString(out)
 }
 
-func DecryptDES(key []byte, ct string) string {
+func decryptDES(key []byte, ct string) string {
 	key = createDesKey(key)
 	ciphertext, _ := hex.DecodeString(ct)
 
