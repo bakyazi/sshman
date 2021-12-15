@@ -44,16 +44,16 @@ sshman uses your unix current user and it creates an account for you. All accoun
 [//]: # (![main1]&#40;assets/main1.png&#41;)
 
 ## install
-### with go
+### go
 > $ go install github.com/bakyazi/sshman 
 
-### with source code
+### source code
 > $ git clone https://github.com/bakyazi/sshman \
 > $ cd sshman \
 > $ go mod download \
 > $ go run *.go
 
-### with docker
+### docker
 > $ git clone https://github.com/bakyazi/sshman \
 > $ cd sshman \
 > $ docker build -t sshman . \
