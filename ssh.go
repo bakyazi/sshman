@@ -31,6 +31,8 @@ func connectFunction(session *Session, app *tview.Application, user string) {
 				}
 			})
 		app.SetRoot(popmodal, false)
+	} else {
+		homeView(app, user)
 	}
 
 	app.Run()
