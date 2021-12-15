@@ -45,8 +45,7 @@ sshman uses your unix current user and it creates an account for you. All accoun
 
 ## install
 ### with go
-> $ go install github.com/bakyazi/sshman \
-> $ sshman
+> $ go install github.com/bakyazi/sshman 
 
 ### with source code
 > $ git clone https://github.com/bakyazi/sshman \
