@@ -124,17 +124,15 @@ func homeView(app *tview.Application, user string) {
 }
 
 func sessionTable(app *tview.Application, user string) *tview.Table {
-	style := tcell.Style{}
-	style.Foreground(tcell.ColorBlack)
-	style.Background(tcell.ColorWhite)
-	table := tview.NewTable().SetFixed(1, 1).SetSelectable(true, false).
-		SetSelectedStyle(style)
+	style := tcell.Style{}.Background(tview.Styles.ContrastBackgroundColor).Foreground(tview.Styles.PrimaryTextColor)
+	table := tview.NewTable().SetFixed(1, 1).SetSelectable(true, false)
+	table.SetSelectedStyle(style)
 	sessions := getAllSessions(getUser(user))
 	headers := []string{"Name", "Host", "Username", "AuthMethod", "Port", "Public Key"}
 	for i := 0; i < len(headers); i++ {
 		table.SetCell(0, i, &tview.TableCell{
 			Text:          headers[i],
-			Color:         tcell.ColorYellow,
+			Color:         tview.Styles.SecondaryTextColor,
 			Align:         tview.AlignLeft,
 			NotSelectable: true,
 		})
@@ -144,7 +142,7 @@ func sessionTable(app *tview.Application, user string) *tview.Table {
 		for j := 0; j < len(headers); j++ {
 			table.SetCell(i+1, j, (&tview.TableCell{
 				Text:          sessionCells[j],
-				Color:         tcell.ColorWhite,
+				Color:         tview.Styles.PrimaryTextColor,
 				Align:         tview.AlignLeft,
 				NotSelectable: false,
 			}).SetExpansion(1))
@@ -168,7 +166,7 @@ func createSessionRow(session *Session) []string {
 	if session.AuthMethod == 0 {
 		authMethod = "Password"
 	} else {
-		authMethod = "PubKey"
+		authMethod = "Private Key"
 	}
 	return []string{
 		session.Name,
@@ -226,6 +224,13 @@ func newConnection(app *tview.Application, user string) {
 		})
 	title := fmt.Sprintf("New Connection")
 	form.SetBorder(true).SetTitle(title).SetTitleAlign(tview.AlignLeft)
+	form.SetInputCapture(func(event *tcell.EventKey) *tcell.EventKey {
+		if event.Key() == tcell.KeyESC {
+			action = 0
+			homeView(app, user)
+		}
+		return event
+	})
 	app.SetRoot(form, true)
 }
 
@@ -276,5 +281,12 @@ func editConnection(app *tview.Application, user string, session *Session) {
 		})
 	title := fmt.Sprintf("Edit Connection")
 	form.SetBorder(true).SetTitle(title).SetTitleAlign(tview.AlignLeft)
+	form.SetInputCapture(func(event *tcell.EventKey) *tcell.EventKey {
+		if event.Key() == tcell.KeyESC {
+			action = 0
+			homeView(app, user)
+		}
+		return event
+	})
 	app.SetRoot(form, true)
 }

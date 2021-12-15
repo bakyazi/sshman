@@ -1,0 +1,1 @@
+docker run --rm -it  -v $HOME:/root sshman /bin/bash
