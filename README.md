@@ -54,10 +54,12 @@ sshman uses your unix current user and it creates an account for you. All accoun
 > $ go run *.go
 
 ### docker
-> $ git clone https://github.com/bakyazi/sshman \
-> $ cd sshman \
-> $ docker build -t sshman . \
-> $ ./rundocker.sh
+> $ docker run --rm -it -v $HOME:/root 'bakyazi/sshman:v0.0.2' /bin/bash 
+
+you can defina an alias(recommended)
+> alias sshman="docker run --rm -it -v $HOME:/root 'bakyazi/sshman:v0.0.2' /bin/bash"
+
+
 
 ## demo
 ![demo](assets/sshmandemo.gif)
